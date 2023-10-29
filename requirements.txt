@@ -4,4 +4,5 @@ matplotlib
 numpy
 scikit-learn
 feature_engine
+xgboost
 -e .
