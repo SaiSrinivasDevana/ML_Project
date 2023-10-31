@@ -1,0 +1,216 @@
+<html>
+    <body>
+        <div class="login">
+            <h1> Heart Disease Indicator </h1>
+
+            <form action = "{{url_for('predict')}}" method="post">
+                <h1>
+                   <legend> Heart Disease Prediction </legend> 
+                </h1>
+
+                
+                <div class="mb-3">
+                    <label class = "form-label">Age</label>
+                    <input class = "form-control" type = "number" name = "age" placeholder = "Enter your Age"  min = "0" max = "100">
+
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Resting Blood Pressure</label>
+                    <input class="form-control" type="number" name="trestbps" placeholder="Enter Resting Blood Pressure Values" min = "94" max = "200">
+
+                </div>
+
+
+                <div class = "mb-3">
+                    <label class = "form-label">Cholestrol</label>
+                    <input class = "form-control" type="number" name = "chol" placeholder = "Enter your Cholestrol Levels" min="100" max="600">
+                </div>
+
+
+
+                <div class = "mb-3">
+                    <label class = "form-label">Oldpeak</label>
+                    <input class = "form-control" type="number" name = "oldpeak"  placeholder="Enter Oldpeak value" min="0.0" max="6.2">
+                </div>
+
+
+
+                <div class = "mb-3">
+                    <label class = "form-label"> Maximum Heart Rate</label>
+                    <input class = "form-control" type = "number" name = "thalach" placeholder = "Maximum heart rate achieved" min="70" max="210">
+                </div>
+
+
+
+
+                <div class="mb-3">
+
+                    <label class = "form-label">Sex</label>
+                    <select class = "form-control" name = "sex" placeholder = "Enter your Sex details" required>
+                        <option class = "placeholder" selected disabled value = "">
+                            Select your Sex
+                        </option>
+
+                        <option value = "1">
+                            Male
+                        </option>
+
+                        <option value = "0">
+                            Female
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="mb-3">
+                    <label class="form-label">Chest Pain</label>
+                    <select class="form-label" name="cp" placeholder = "Enter chest pain level details" required>
+                        <option class="placeholder" selected disabled value="">
+                            Enter chest pain details
+                        </option>
+                        <option value = "3">
+                            Myocardial Infarction
+                        </option>
+                        <option value = "2">
+                            Angina Pectoris
+                        </option>
+                        <option value = "1">
+                            Other Cardiac Chest Pain
+                        </option>
+                        <option value = "0">
+                            Non-cardiac Chest Pain
+                        </option>
+                    </select>
+
+                </div>
+
+
+                
+                <div class = "mb-3">
+                    <label class = "form-label"> Fasting Blood Sugar > 120? </label>
+                    <select class = "form-control" name = "fbs" placeholder = "Is Fasting blood sugar value greater than 120" required>
+                        <option class = "placeholder" selected disabled value = "">Enter FBS</option>
+                            <option value = "1">
+                                True
+                            </option>
+                            <option value = "0">
+                                False
+                            </option>
+                        
+                    </select>
+                </div>
+
+
+                <div class = "mb-3">
+                    <label class = "form-label">Resting Cardiographic Results</label>
+                    <select class = "form-control" name = "restecg" placeholder = "Enter your ecg levels" required>
+                        <option class = "placeholder" selected disabled value="">Enter ECG Levels</option>
+                            <option value = "0">
+                                No abnormalities in ECG
+                            </option>
+                            <option value = "1">
+                                Minor ECG abnormalities
+                            </option>
+                            <option value = "2">
+                                Major ECG abnormalities
+                            </option>
+                        
+
+                    </select>
+
+                </div>
+
+
+                
+
+                <div class = "mb-3">
+                    <label class = "form-label">Exercise Induced Angina?</label>
+                    <select class = "form-control" name = "exang" placeholder = "Is it exercise induced angina" required> 
+                        <option class = "placeholder" selected disabled value="">Enter Exang value</option>
+                            <option value = "1">
+                                True
+                            </option>
+                            <option value = "0">
+                                False
+                            </option>
+                        
+                    </select>
+                </div>
+
+
+                
+                
+                <div class = "mb-3">
+                    <label class = "form-label">Slope</label>
+                    <select class = "form-control" name = "slope" placeholder = "slope value" required> 
+                        <option class = "placeholder" selected disabled value=""> Enter slope value</option>
+                            <option value = "0">
+                                Horizontal ST
+                            </option>
+                            <option value = "1">
+                                Non-horizontal ST
+                            </option>
+                            <option value = "2">
+                                Downsloping ST
+                            </option>
+                       
+                    </select>
+                </div>
+
+
+                <div class = "mb-3">
+                    <label class = "form-label">CA</label>
+                    <select class = "form-control" name = "ca" placeholder = "ca value" required> 
+                        <option class = "placeholder" selected disabled value="">Enter CA</option>
+                            <option value = "0">
+                                No vessel blocked
+                            </option>
+                            <option value = "1">
+                                one vessel blocked
+                            </option>
+                            <option value = "2">
+                                two vessels blocked
+                            </option>
+                            <option value = "3">
+                                three vessels blocked
+                            </option>
+                            <option value = "4">
+                                four vessels blocked
+                            </option>
+                        
+                    </select>
+                </div>
+
+
+                <div class = "mb-3">
+                    <label class = "form-label">Thal</label>
+                    <select class = "form-control" name = "thal" placeholder = "thal value" required> 
+                        <option class = "placeholder" selected disabled value="">Enter Thal value</option>
+                            <option value = "0">
+                                No defect
+                            </option>
+                            <option value = "1">
+                                Normal
+                            </option>
+                            <option value = "2">
+                                Fixed Defect
+                            </option>
+                            <option value = "3">
+                                Reversable defect
+                            </option>
+                        
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <input class="btn btn-primary" type="submit" value="Predict your heart disease" required />
+                </div>
+
+            </form>
+            <h2>
+                THE  prediction is {{results}}
+             </h2>
+        </div>
+    </body>
+</html>

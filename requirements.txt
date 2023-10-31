@@ -5,4 +5,5 @@ numpy
 scikit-learn
 feature_engine
 xgboost
+Flask
 -e .
