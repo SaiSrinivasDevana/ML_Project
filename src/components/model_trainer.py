@@ -30,43 +30,47 @@ class ModelTrainer:
                test_arr[:,:-1],test_arr[:,-1])
             model={
 
-                "random_forest_model" : RandomForestClassifier(),
+                
                 "logistic_regression_model" : LogisticRegression(),
+                "random_forest_model" : RandomForestClassifier(),
+                "decision_tree_classifier" : DecisionTreeClassifier(),
                 "knn_classifier_model" : KNeighborsClassifier(),
                 "ada_boost_classifier" : AdaBoostClassifier(),
-                "xg_boost_classifier" : XGBClassifier(),
-                "decision_tree_classifier" : DecisionTreeClassifier()
-
+                "xg_boost_classifier" : XGBClassifier()        
 
              }
 
             params={
-                "random_forest_model" : {
-                   'n_estimators' : [100,200,300],
-                   'max_features' : ['sqrt','log2',None],
-                   'max_depth' : range(1,10,2)
-               },
+                
                "logistic_regression_model" : {
                    'class_weight' : ['balanced', None],
                    'penalty' : ['l1','l2',None]
 
                 },
+                "random_forest_model" : {
+                   'n_estimators' : [100,200,300],
+                   'max_features' : ['sqrt','log2',None],
+                   'max_depth' : range(1,10,2)
+               },
                "decision_tree_classifier" : {
                    
                   'max_depth' : np.arange(1,10,2),
-                  'max_leaf_nodes' : np.arange(1,10,2)
+                  'max_leaf_nodes' : np.arange(1,10,2),
+                  'class_weight' : ['balanced', None],
+                  'criterion' : ['gini', 'entropy']
                },
                "knn_classifier_model" : {
                    'n_neighbors' : np.arange(1,15,2)
                },
                "ada_boost_classifier" : {
-                   'learning_rate':[.1,.01,0.5,.001],
-                    #'loss':['linear','square','exponential'],
-                    'n_estimators': [8,16,32,64,128,256]
+                   'learning_rate':[.1,.01,0.2,.001],
+                    'n_estimators': [100,200,300]
                },
                "xg_boost_classifier" : {
-                   'learning_rate':[.1,.01,0.5,.001],
-                   'max_depth' : np.arange(1,10,2)
+                   'learning_rate':[0.01,0.1,0.2,0.3,.001],
+                   'max_depth' : np.arange(1,10,2),
+                   'n_estimators' : [100,200,300],
+                   'subsample' : np.arange(0.5,1,0.1)
                }
             }
             model_report:dict=evaluate_models(X_train=X_train,y_train=y_train,X_test=X_test,y_test=y_test,

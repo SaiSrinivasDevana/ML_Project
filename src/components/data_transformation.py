@@ -10,7 +10,7 @@ from feature_engine.encoding import OneHotEncoder, RareLabelEncoder
 from feature_engine.selection import DropDuplicateFeatures
 from feature_engine.imputation import MeanMedianImputer, CategoricalImputer
 from feature_engine.transformation import YeoJohnsonTransformer
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, OrdinalEncoder
 from feature_engine.wrappers import SklearnTransformerWrapper
 from src.utils import save_object
 
@@ -29,16 +29,19 @@ class DataTransformation:
         try:
             numerical_columns = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak']
 
-            categorical_columns = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal']
+            discrete_columns  = ['slope', 'ca']
+
+            categorical_columns = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'thal']
 
             pipeline = Pipeline([
                 ('drop_duplicates', DropDuplicateFeatures()),
-                ('imputer_median', MeanMedianImputer(variables = ['chol','thalach'],imputation_method = "median")),
-                ('imputer_categorical', CategoricalImputer(imputation_method ='missing', variables = ['sex','cp'],fill_value="Missing")),
+                ('imputer_median', MeanMedianImputer(variables = ['chol','thalach','slope','ca'],imputation_method = "median")),
+                ('imputer_categorical', CategoricalImputer(imputation_method ='frequent', variables = ['sex','cp'],ignore_format= True)),
                 ('log_transformation', YeoJohnsonTransformer(variables = ['trestbps','chol','thalach','oldpeak'])),
-                ('rare_label_encoding', RareLabelEncoder(variables = ['thal','ca','restecg'])),
-                ('OnehotEncoder',OneHotEncoder(variables = categorical_columns,drop_last=True)),
-                ('scalar',SklearnTransformerWrapper(StandardScaler(),variables = numerical_columns)),
+                ('rare_label_encoding', RareLabelEncoder(variables = 'thal',ignore_format = True)),
+                 ('OnehotEncoder',OneHotEncoder(variables = ['sex', 'fbs', 'exang', 'thal'],drop_last=True,ignore_format=True)),
+                ('ordinal_encoder',SklearnTransformerWrapper(OrdinalEncoder(),variables = ['cp', 'restecg'])),   
+                ('scalar',SklearnTransformerWrapper(StandardScaler(),variables = ['age', 'trestbps', 'chol', 'thalach', 'oldpeak','slope','ca'])),
                 
             ])
 
@@ -55,18 +58,11 @@ class DataTransformation:
         try:
             train_data = pd.read_csv(train_path)
             test_data = pd.read_csv(test_path)
-
-            categorical_columns = ['sex', 'cp', 'fbs', 'restecg', 'exang', 'slope', 'ca', 'thal']
-
-            for var in categorical_columns:
-                train_data[var]=train_data[var].astype('object')
-                test_data[var]=test_data[var].astype('object')
             
             preprocessor_obj = self.data_transformation()
 
             input_train_data = train_data.drop(columns='target',axis=1)
             input_train_target = train_data['target']
-
 
             input_test_data = test_data.drop(columns='target',axis=1)
             input_test_target = test_data['target']

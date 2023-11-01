@@ -20,9 +20,9 @@ def predict():
             chol =  float(request.form.get('chol')),
             oldpeak = float(request.form.get('oldpeak')),
             sex = request.form.get('sex'),
-            cp = request.form.get('cp'),
+            cp = float(request.form.get('cp')),
             fbs = request.form.get('fbs'),
-            restecg = request.form.get('restecg'),
+            restecg = float(request.form.get('restecg')),
             
             exang = request.form.get('exang'),
             

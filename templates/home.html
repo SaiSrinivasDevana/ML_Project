@@ -1,7 +1,13 @@
 <html>
+    <head>
+        <title> 
+            Heart Disease Prediction
+        </title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    </head>
     <body>
         <div class="login">
-            <h1> Heart Disease Indicator </h1>
+            
 
             <form action = "{{url_for('predict')}}" method="post">
                 <h1>
@@ -209,7 +215,7 @@
 
             </form>
             <h2>
-                THE  prediction is {{results}}
+                The  prediction is {{results}}
              </h2>
         </div>
     </body>
