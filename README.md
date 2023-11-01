@@ -21,10 +21,11 @@ There are 13 independent variables:
 - Target variable:
 
 target: The "target" field refers to the presence of heart disease in the patient. It is integer valued 0 = no disease and 1 = disease.
-Dataset Source Link : https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset
+
+- Dataset Source Link : https://www.kaggle.com/datasets/johnsmith88/heart-disease-dataset
 
 AWS Deployment Link :
-AWS Elastic Beanstalk link : https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/heart_disease_prediction/view?region=us-east-1
+- AWS Elastic Beanstalk link : https://us-east-1.console.aws.amazon.com/codesuite/codepipeline/pipelines/heart_disease_prediction/view?region=us-east-1
 
 
 Approach for the project
