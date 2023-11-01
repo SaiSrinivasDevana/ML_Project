@@ -1,5 +1,5 @@
-Heart Disease Prediction 
-Introduction About the Data :
+# Heart Disease Prediction 
+## Introduction About the Data :
 
 The dataset The goal is to predict the risk of an individual being subjected to heart disease (Classification Analysis).
 
