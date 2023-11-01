@@ -44,10 +44,12 @@ In this phase a Pipeline is created.
 - for Numeric Variables first MeanMedianImputer is applied with strategy median , then log transformation is performed followed by which Standard Scaling is performed on numeric data.
 - for Categorical Variables Categorical Imputer is applied with missing strategy, then rare label encoding performed for columns which contain categories with less than 5% of data, after this one hot encoding is performed.
 - This preprocessor is saved as pickle file.
+  
 Model Training :
 
 In this phase different models with different hyper parameter combinations were tested . The best model found was Random Forest regressor.
 This model is saved as pickle file.
+
 Prediction Pipeline :
 
 This pipeline converts given data into dataframe and has various functions to load pickle files and predict the final results in python.
