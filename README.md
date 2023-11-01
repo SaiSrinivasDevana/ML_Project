@@ -56,7 +56,7 @@ This pipeline converts given data into dataframe and has various functions to lo
 
 Flask App creation :
 
-Flask app is created with User Interface to predict the gemstone prices inside a Web Application.
+Flask app is created with User Interface to predict the heart disease inside a Web Application.
 
 Exploratory Data Analysis Notebook
 Link : [https://github.com/SaiSrinivasDevana/ML_Project/blob/main/notebook/EDA.ipynb]
