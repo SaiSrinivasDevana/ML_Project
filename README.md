@@ -47,7 +47,7 @@ In this phase a Pipeline is created.
   
 Model Training :
 
-In this phase different models with different hyper parameter combinations were tested . The best model found was Random Forest regressor.
+In this phase different models with different hyper parameter combinations were tested . The best model found was Random Forest classifier.
 This model is saved as pickle file.
 
 Prediction Pipeline :
