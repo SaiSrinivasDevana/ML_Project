@@ -53,11 +53,13 @@ This model is saved as pickle file.
 Prediction Pipeline :
 
 This pipeline converts given data into dataframe and has various functions to load pickle files and predict the final results in python.
+
 Flask App creation :
 
 Flask app is created with User Interface to predict the gemstone prices inside a Web Application.
+
 Exploratory Data Analysis Notebook
-Link :[EDANotebook] [https://github.com/SaiSrinivasDevana/ML_Project/blob/main/notebook/EDA.ipynb]
+Link : [https://github.com/SaiSrinivasDevana/ML_Project/blob/main/notebook/EDA.ipynb]
 
 Model Training Approach Notebook
 Link : Model Training Notebook
