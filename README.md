@@ -61,8 +61,6 @@ Flask app is created with User Interface to predict the gemstone prices inside a
 Exploratory Data Analysis Notebook
 Link : [https://github.com/SaiSrinivasDevana/ML_Project/blob/main/notebook/EDA.ipynb]
 
-Model Training Approach Notebook
-Link : Model Training Notebook
 
 
 
