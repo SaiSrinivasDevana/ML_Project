@@ -41,8 +41,8 @@ Data Transformation :
 In this phase a Pipeline is created.
 - Initially for droping duplicate features DropDuplicateFeatures function from feature engine is used.
 
-- for Numeric Variables first MeanMedianImputer is applied with strategy median , then log transformation is performed followed by which Standard Scaling is performed on numeric data.
-- for Categorical Variables Categorical Imputer is applied with missing strategy, then rare label encoding performed for columns which contain categories with less than 5% of data, after this one hot encoding is performed.
+- for Numeric Variables first MeanMedianImputer is applied with strategy median , then yeojohnson transformation is performed followed by which Standard Scaling is performed on numeric data.
+- for Categorical Variables Categorical Imputer is applied with frequent strategy, then rare label encoding performed for columns which contain categories with less than 5% of data, after this one hot encoding is performed.
 - This preprocessor is saved as pickle file.
   
 Model Training :
